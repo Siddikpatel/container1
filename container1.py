@@ -39,7 +39,7 @@ def validate():
 
     product = data['product']
 
-    container2 = "http://container2:5100/"
+    container2 = "http://localhost:5100/"
 
     try:
         response = requests.post(container2, json={'file': file_name, 'product': product})
