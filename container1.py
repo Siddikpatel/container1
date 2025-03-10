@@ -3,7 +3,7 @@ import os
 import requests
 
 app = Flask(__name__)
-base_path = './local/'
+base_path = '/siddik_PV_dir/'
 
 @app.route('/store-file', methods=['POST'])
 def store_file():
@@ -15,9 +15,6 @@ def store_file():
 
     file_name = data['file']
     file_data = data['data'].replace('\\n', '\n')
-
-    if not os.path.exists(base_path):
-        os.makedirs(base_path)
 
     try:
         with open(os.path.join(base_path, file_name), 'w') as file:
