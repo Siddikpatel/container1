@@ -19,7 +19,7 @@ def store_file():
     try:
         with open(os.path.join(base_path, file_name), 'w') as file:
             file.write(file_data)
-        return jsonify({'file': file_name, 'message': "Success."}), 200
+        return jsonify({'file': file_name, 'message': file_data}), 200
     except:
         return jsonify({'file': file_name, 'error': 'Error while storing the file to the storage.'}), 500
 
