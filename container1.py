@@ -14,12 +14,12 @@ def store_file():
         return jsonify({'file': None, 'error': 'Invalid JSON input.'}), 400
 
     file_name = data['file']
-    file_data = data['data'].replace('\\n', '\n')
+    file_data = data['data'].replace('\\n', '\n').replace(' ','')
 
     try:
         with open(os.path.join(base_path, file_name), 'w') as file:
             file.write(file_data)
-        return jsonify({'file': file_name, 'message': 'Success.'}), 200
+        return jsonify({'file': file_name, 'message': file_data}), 200
     except:
         return jsonify({'file': file_name, 'error': 'Error while storing the file to the storage.'}), 500
 
