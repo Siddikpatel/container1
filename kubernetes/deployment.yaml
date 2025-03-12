@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: container1-deployment
+  labels:
+    app: container1-deployment
 spec:
   replicas: 1
   selector:
